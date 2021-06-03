@@ -1,15 +1,9 @@
 # Overview
 
-Data on my daily step counts from 1 January 2020 to present, with analyses planned once two years of data are collected.
+Data on my daily step counts from 1 January 2020 to present, with analyses planned once two years of data are collected. Future analyses will likely include weekly moving averages and distributions of count data.
 
 <br/>
 
 # Files
 
-## Data
-
-**StepData** *(.csv)* - Data containing daily step counts from 1 January 2020 to present.
-
-## Scripts
-
-*No scripts have been uploaded yet.*
+**StepData** *(.xlsx)* - Data containing daily step counts from 1 January 2020 to present.
