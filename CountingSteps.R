@@ -50,6 +50,24 @@ tPlot <- function(){
 
 
 
+##### Get overall step count stats ------------------------------------------------------------------------
+
+# Get longest goal streak
+goalStreak <- rle(data$Steps >= 8000)
+goalStreak <- max(goalStreak$lengths[goalStreak$values == TRUE])
+
+# Calculate total steps, total distance, and average daily steps
+# Also calculate rate that goal is met; include longest goal streak
+stepStats <- c(sum(data$Steps),
+               round(sum(data$Steps)*0.427/1000, 0),
+               round(mean(data$Steps), 2),
+               round(length(data$Steps[data$Steps >= 8000])/nrow(data)*100, 2),
+               goalStreak)
+
+
+
+
+
 ##### Combine plots into a single canvas ------------------------------------------------------------------
 
 # Prepare graphics device
@@ -97,6 +115,16 @@ grid.text(label = c("Daily Count", "7-Day Average", "Daily Goal"),
 grid.segments(x0 = rep(0.860, 3), y0 = c(0.447, 0.430, 0.413),
               x1 = rep(0.880, 3), y1 = c(0.447, 0.430, 0.413),
               gp = gpar(col = c("black", "red", "blue"), lty = c(1, 1, 3), lwd = 0.5))
+
+# summary stats
+grid.text(label = c(paste0(stepStats[1]), "Total Steps",
+                    paste0(stepStats[2], " km"), "Total Distance",
+                    paste0(stepStats[3]), "Average Daily Steps",
+                    paste0(stepStats[4], "%"), "Goal Success Rate",
+                    paste0(stepStats[5], " days"), "Longest Goal Streak"),
+          x = c(0.610, 0.700, 0.610, 0.700, 0.610, 0.700, 0.610, 0.700, 0.610, 0.700),
+          y = c(rep(0.95, 2), rep(0.86, 2), rep(0.77, 2), rep(0.68, 2), rep(0.59, 2)),
+          hjust = 0, gp = gpar(cex = 0.5, col = rep(c("blue", "black"), 5)))
 
 # Deactivate grid layout; finalise graphics save
 popViewport()
