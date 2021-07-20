@@ -1,6 +1,6 @@
 # Overview
 
-A log and summuary of daily step counts, recorded using a fitness tracker, from 1 January 2020 to present.
+A log and summary of daily step counts, recorded using a fitness tracker, from 1 January 2020 to present.
 
 <br/>
 
@@ -18,4 +18,4 @@ A log and summuary of daily step counts, recorded using a fitness tracker, from 
 
 Noteworthy or interesting plots, images, figures, and other graphical outputs from the code are included below.
 
-<kbd>![](https://github.com/TrevorHD/CountingSteps/blob/main/StepData.tif)</kbd>
+<kbd>![](https://github.com/TrevorHD/CountingSteps/blob/main/StepData.jpg)</kbd>
