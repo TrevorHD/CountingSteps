@@ -8,7 +8,7 @@ A log and summary of daily step counts, recorded using a fitness tracker, from 1
 
 **StepData** *(.xlsx)* - Data containing daily step counts from 1 January 2020 to present.
 
-**StepData** *(.tif)* - A standalone image, embedded below, that contains summary statistics on step counts, a time series of the data, and histogram dhowing the distribution of step counts.
+**StepData** *(.jpg)* - A standalone image, embedded below, that contains summary statistics on step counts, a time series of the data, and histogram dhowing the distribution of step counts.
 
 **CountingSteps** *(.R)* - The R code used to prepare the data and create graphics.
 
