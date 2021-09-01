@@ -24,4 +24,4 @@ A log, summary, and brief analysis of daily step counts from 1 January 2020 to p
 
 The summary and analysis of step counts is shown below. Blue lines indicate a daily goal of 8000 steps, and the top left plot shows the distribution of daily step counts with green indicating that the goal was met and red indicating that the goal was not met; the bottom plot shows a time series (black) and moving average (red) of daily step counts. Summary statistics such as total step count, total distance travelled, and mean daily step count are also provided.
 
-<kbd>![](https://github.com/TrevorHD/CountingSteps/blob/main/StepData.jpg)</kbd>
+<kbd>![](https://github.com/TrevorHD/CountingSteps/blob/main/Figures/StepData.jpg)</kbd>
