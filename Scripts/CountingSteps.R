@@ -7,7 +7,7 @@ library(grid)
 library(gridBase)
 
 # Load in step data
-data <- read.csv("StepData.csv")
+data <- read.csv("Data/StepData.csv")
 
 names(data)[1] <- "Year"
 data <- mutate(data, Date = as.Date(paste(Month, Day, Year, sep = "/"), "%m/%d/%Y"))
