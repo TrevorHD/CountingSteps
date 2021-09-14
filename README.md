@@ -8,7 +8,7 @@ A log, summary, and brief analysis of daily step counts from 1 January 2020 to p
 
 ## Data
 
-**StepData** *(.xlsx)* - Data containing daily step counts from 1 January 2020 to present.
+**StepData** *(.csv)* - Data containing daily step counts from 1 January 2020 to present.
 
 ## Scripts
 
