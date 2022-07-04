@@ -27,7 +27,7 @@ hPlot <- function(){
   hist(data$Steps, breaks = seq(0, 40000, by = 1000), xlab = "", xaxt = "n",
        ylab = "", yaxt = "n", col = histColours, main = "", ylim = c(0, 250))
   axis(side = 1, at = seq(0, 40000, by = 10000), labels = c("0", "10k", "20k", "30k", "40k"))
-  axis(side = 2, at = seq(0, 200, by = 50), labels = TRUE, mgp = c(0, 0.17, 0))
+  axis(side = 2, at = seq(0, 250, by = 50), labels = TRUE, mgp = c(0, 0.17, 0))
   abline(v = 8000, col = "blue", lty = 3, lwd = 0.5)
   box(lwd = 1)}
 
@@ -117,7 +117,7 @@ grid.segments(x0 = rep(0.860, 3), y0 = c(0.447, 0.430, 0.413),
               x1 = rep(0.880, 3), y1 = c(0.447, 0.430, 0.413),
               gp = gpar(col = c("black", "red", "blue"), lty = c(1, 1, 3), lwd = 0.5))
 
-# summary stats
+# Summary stats
 grid.text(label = c(paste0(stepStats[1]), "Total Steps",
                     paste0(stepStats[2], " km"), "Total Distance",
                     paste0(stepStats[3]), "Average Daily Steps",
