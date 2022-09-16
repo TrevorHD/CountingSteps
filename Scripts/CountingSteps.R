@@ -25,9 +25,9 @@ hPlot <- function(){
   histColours <-  c(colorRampPalette(c("red4", "red"), 0.5)(8), 
                     colorRampPalette(c("green", "green4"))(8), rep("green4", 16))
   hist(data$Steps, breaks = seq(0, 40000, by = 1000), xlab = "", xaxt = "n",
-       ylab = "", yaxt = "n", col = histColours, main = "", ylim = c(0, 250))
+       ylab = "", yaxt = "n", col = histColours, main = "", ylim = c(0, 300))
   axis(side = 1, at = seq(0, 40000, by = 10000), labels = c("0", "10k", "20k", "30k", "40k"))
-  axis(side = 2, at = seq(0, 250, by = 50), labels = TRUE, mgp = c(0, 0.17, 0))
+  axis(side = 2, at = seq(0, 300, by = 50), labels = TRUE, mgp = c(0, 0.17, 0))
   abline(v = 8000, col = "blue", lty = 3, lwd = 0.5)
   box(lwd = 1)}
 
