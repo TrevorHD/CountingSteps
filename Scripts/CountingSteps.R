@@ -131,4 +131,4 @@ grid.text(label = c(paste0(stepStats[1]), "Total Steps",
 # Deactivate grid layout; finalise graphics save
 popViewport()
 dev.off()
-
+dev.off()
