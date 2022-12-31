@@ -45,8 +45,8 @@ hPlot <- function(){
 tPlot <- function(){
   plot(data$Date, data$Steps, type = "l", ylim = c(0, 40000), xlab = "", xaxt = "n",
        ylab = "", yaxt = "n", lwd = 0.5)
-  axis.Date(1, at = seq(min(data$Date), max(data$Date), by = "1 mon"), format = "%m/%y",
-            cex.axis = 0.35)
+  axis.Date(1, at = seq(min(data$Date), max(data$Date), by = "3 mon"), format = "%m/%y")
+  axis.Date(1, at = seq(min(data$Date), max(data$Date), by = "1 mon"), labels = FALSE, tcl = -0.11)
   axis(side = 2, at = seq(0, 40000, by = 5000), labels = c("0", "", "10k", "", "20k", "", "30k", "", "40k"),
        mgp = c(0, 0.17, 0))
   lines(data$Date, rollmean(data$Steps, 7, fill = list(NA, NULL, NA)), col = "red", lwd = 1)
@@ -88,7 +88,7 @@ gly <- grid.layout(800, 1200)
 pushViewport(viewport(layout = gly))
 
 # Plot step count time series
-pushViewport(vp = viewport(layout.pos.row = 370:800, layout.pos.col = 1:1200))
+pushViewport(vp = viewport(layout.pos.row = 370:790, layout.pos.col = 1:1175))
 par(fig = gridFIG(), mar = c(0.8, 1, 0.4, 0.4), cex.axis = 0.42, tcl = -0.2, mgp = c(0, -0.2, 0))
 par(new = TRUE)
 tPlot()
