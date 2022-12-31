@@ -24,13 +24,16 @@ hPlot <- function(){
   par(lwd = 0.5)
   histColours <-  c(colorRampPalette(c("red4", "red"), 0.5)(8), 
                     colorRampPalette(c("green", "green4"))(8), rep("green4", 24))
-  hist(data$Steps, breaks = seq(0, 40000, by = 1000), xlab = "", xaxt = "n",
-       ylab = "", yaxt = "n", col = histColours, main = "", ylim = c(0, 400))
-  axis(side = 1, at = seq(0, 40000, by = 10000), labels = c("0", "10k", "20k", "30k", "40k"))
-  axis(side = 2, at = seq(0, 400, by = 100), labels = c("0", "100", "200", "300", "400"),
+  h <- hist(data$Steps, breaks = seq(0, 40000, by = 1000), plot = FALSE)
+  h$density <- h$counts/sum(h$counts)*100
+  plot(h, freq = FALSE, xlab = "", xaxt = "n",
+       ylab = "", yaxt = "n", col = histColours, main = "", ylim = c(0, 30))
+  axis(side = 1, at = seq(0, 40000, by = 5000), labels = c("0", "", "10k", "", "20k", "", "30k", "", "40k"))
+  axis(side = 2, at = seq(0, 30, by = 5), labels = c("0%", "", "10%", "", "20%", "", "30%"),
        mgp = c(0, 0.17, 0))
   abline(v = 8000, col = "blue", lty = 3, lwd = 0.5)
   box(lwd = 1)}
+
 
 
 
@@ -44,7 +47,7 @@ tPlot <- function(){
        ylab = "", yaxt = "n", lwd = 0.5)
   axis.Date(1, at = seq(min(data$Date), max(data$Date), by = "1 mon"), format = "%m/%y",
             cex.axis = 0.35)
-  axis(side = 2, at = seq(0, 40000, by = 10000), labels = c("0", "10k", "20k", "30k", "40k"),
+  axis(side = 2, at = seq(0, 40000, by = 5000), labels = c("0", "", "10k", "", "20k", "", "30k", "", "40k"),
        mgp = c(0, 0.17, 0))
   lines(data$Date, rollmean(data$Steps, 7, fill = list(NA, NULL, NA)), col = "red", lwd = 1)
   abline(h = 8000, col = "blue", lty = 3, lwd = 0.5)}
@@ -85,39 +88,39 @@ gly <- grid.layout(800, 1200)
 pushViewport(viewport(layout = gly))
 
 # Plot step count time series
-pushViewport(vp = viewport(layout.pos.row = 350:800, layout.pos.col = 1:1200))
-par(fig = gridFIG(), mar = c(1, 1, 0.4, 0.4), cex.axis = 0.42, tcl = -0.2, mgp = c(0, -0.2, 0))
+pushViewport(vp = viewport(layout.pos.row = 370:800, layout.pos.col = 1:1200))
+par(fig = gridFIG(), mar = c(0.8, 1, 0.4, 0.4), cex.axis = 0.42, tcl = -0.2, mgp = c(0, -0.2, 0))
 par(new = TRUE)
 tPlot()
 popViewport()
 
 # Plot step count histogram
-pushViewport(vp = viewport(layout.pos.row = 1:350, layout.pos.col = 1:700))
-par(fig = gridFIG(), mar = c(1, 1, 0.4, 0.4), cex.axis = 0.42, tcl = -0.2, mgp = c(0, -0.2, 0))
+pushViewport(vp = viewport(layout.pos.row = 15:350, layout.pos.col = 1:700))
+par(fig = gridFIG(), mar = c(0.3, 1, 0.4, 0.4), cex.axis = 0.42, tcl = -0.2, mgp = c(0, -0.2, 0))
 par(new = TRUE)
 hPlot()
 popViewport()
 
 # Create figure labels
 grid.text(label = c("Daily Step Count", "(Distribution)", "Daily Step Count", "(Time Series)"),
-          x = c(0.549, 0.549, 0.061, 0.061), y = c(0.947, 0.930, 0.510, 0.493),
+          x = c(0.549, 0.549, 0.061, 0.061), y = c(0.932, 0.915, 0.488, 0.471),
           hjust = c(1, 1, 0, 0), gp = gpar(cex = 0.3))
 popViewport()
 
 # Create legend (top)
 grid.text(label = c("Above Goal", "Below Goal"),
-          x = rep(0.486, 2), y = c(0.897, 0.880),
+          x = rep(0.486, 2), y = c(0.882, 0.865),
           hjust = 0, gp = gpar(cex = 0.3))
-grid.rect(x = rep(0.476, 2), y = c(0.897, 0.880),
+grid.rect(x = rep(0.476, 2), y = c(0.882, 0.865),
           width = rep(0.008, 2), height = rep(0.010, 2),
           gp = gpar(col = c("green", "red"), fill = c("green", "red")))
 
 # Create legend (bottom)
 grid.text(label = c("Daily Count", "7-Day Average", "Daily Goal"),
-          x = rep(0.085, 3), y = c(0.457, 0.440, 0.423),
+          x = rep(0.085, 3), y = c(0.440, 0.423, 0.408),
           hjust = 0, gp = gpar(cex = 0.3))
-grid.segments(x0 = rep(0.061, 3), y0 = c(0.457, 0.440, 0.423),
-              x1 = rep(0.081, 3), y1 = c(0.457, 0.440, 0.423),
+grid.segments(x0 = rep(0.061, 3), y0 = c(0.443, 0.426, 0.411),
+              x1 = rep(0.081, 3), y1 = c(0.443, 0.426, 0.411),
               gp = gpar(col = c("black", "red", "blue"), lty = c(1, 1, 3), lwd = 0.5))
 
 # Summary stats
@@ -126,7 +129,7 @@ grid.text(label = c(paste0(stepStats[1]), "Total Steps",
                     paste0(stepStats[3]), "Average Daily Steps",
                     paste0(stepStats[4], "%"), "Goal Success Rate",
                     paste0(stepStats[5], " days"), "Longest Goal Streak"),
-          x = rep(c(0.610, 0.700), 5), y = rep(seq(0.959, 0.648, length.out = 5), each = 2),
+          x = rep(c(0.610, 0.700), 5), y = rep(seq(0.946, 0.597, length.out = 5), each = 2),
           hjust = 0, gp = gpar(cex = 0.5, col = rep(c("blue", "black"), 5)))
 
 # Deactivate grid layout; finalise graphics save
