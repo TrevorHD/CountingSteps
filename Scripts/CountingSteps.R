@@ -38,7 +38,6 @@ hPlot <- function(){
 
 
 
-
 ##### Plot moving average and daily counts ----------------------------------------------------------------
 
 # Function to generate time series plot
@@ -65,10 +64,16 @@ goalStreak <- max(goalStreak$lengths[goalStreak$values == TRUE])
 # Calculate total steps, total distance, and average daily steps
 # Also calculate rate that goal is met; include longest goal streak
 stepStats <- c(sum(data$Steps),
-               round(sum(data$Steps)*0.427/1000, 0),
-               round(mean(data$Steps), 2),
+               round(sum(data$Steps)*0.427/1000, 1),
+               round(mean(data$Steps), 0),
                round(length(data$Steps[data$Steps >= 8000])/nrow(data)*100, 2),
                goalStreak)
+
+# Get total and mean step count, goal rate over last 30 days
+data30 <- data[(nrow(data)-30):nrow(data), ]
+step30Stats <- c(sum(data30$Steps),
+                 round(mean(data30$Steps), 1),
+                 round(length(data30$Steps[data30$Steps >= 8000])/nrow(data30)*100, 2))
 
 
 
@@ -124,13 +129,18 @@ grid.segments(x0 = rep(0.061, 3), y0 = c(0.443, 0.426, 0.411),
               gp = gpar(col = c("black", "red", "blue"), lty = c(1, 1, 3), lwd = 0.5))
 
 # Summary stats
-grid.text(label = c(paste0(stepStats[1]), "Total Steps",
-                    paste0(stepStats[2], " km"), "Total Distance",
+grid.text(label = c(paste0(stepStats[2], " km"), "Total Distance",
+                    paste0(stepStats[1]), "Total Steps",
                     paste0(stepStats[3]), "Average Daily Steps",
-                    paste0(stepStats[4], "%"), "Goal Success Rate",
-                    paste0(stepStats[5], " days"), "Longest Goal Streak"),
-          x = rep(c(0.610, 0.700), 5), y = rep(seq(0.946, 0.597, length.out = 5), each = 2),
-          hjust = 0, gp = gpar(cex = 0.5, col = rep(c("blue", "black"), 5)))
+                    paste0(sprintf(stepStats[4], fmt = "%#.2f"), "%"), "Goal Success Rate",
+                    paste0(stepStats[5], " days"), "Longest Goal Streak",
+                    paste0(step30Stats[1]), "30-day Total Steps",
+                    paste0(step30Stats[2]), "30-day Average Daily Steps",
+                    paste0(sprintf(step30Stats[3], fmt = "%#.2f"), " %"), "30-day Goal Success Rate"),
+          x = rep(c(0.605, 0.709), 8), rep(c(seq(0.946, 0.755, length.out = 5),
+                                             seq(0.695, 0.597, length.out = 3)), each = 2), hjust = 0,
+          gp = gpar(cex = 0.5, col = c(rep(c("blue", "black"), 5), rep(c("purple", "black"), 3))))
+grid.segments(x0 = 0.605, y0 = 0.725, x1 = 0.958, y1 = 0.725, gp = gpar(lwd = 0.65))
 
 # Deactivate grid layout; finalise graphics save
 popViewport()
