@@ -64,7 +64,7 @@ goalStreak <- max(goalStreak$lengths[goalStreak$values == TRUE])
 # Calculate total steps, total distance, and average daily steps
 # Also calculate rate that goal is met; include longest goal streak
 stepStats <- c(sum(data$Steps),
-               round(sum(data$Steps)*0.427/1000, 1),
+               round(sum(data$Steps)*0.427/1000, 0),
                round(mean(data$Steps), 0),
                round(length(data$Steps[data$Steps >= 8000])/nrow(data)*100, 2),
                goalStreak)
@@ -72,7 +72,7 @@ stepStats <- c(sum(data$Steps),
 # Get total and mean step count, goal rate over last 30 days
 data30 <- data[(nrow(data)-30):nrow(data), ]
 step30Stats <- c(sum(data30$Steps),
-                 round(mean(data30$Steps), 1),
+                 round(mean(data30$Steps), 0),
                  round(length(data30$Steps[data30$Steps >= 8000])/nrow(data30)*100, 2))
 
 
