@@ -110,7 +110,6 @@ popViewport()
 grid.text(label = c("Daily Step Count", "(Distribution)", "Daily Step Count", "(Time Series)"),
           x = c(0.549, 0.549, 0.061, 0.061), y = c(0.932, 0.915, 0.488, 0.471),
           hjust = c(1, 1, 0, 0), gp = gpar(cex = 0.3))
-popViewport()
 
 # Create legend (top)
 grid.text(label = c("Above Goal", "Below Goal"),
@@ -145,3 +144,4 @@ grid.segments(x0 = 0.605, y0 = 0.725, x1 = 0.958, y1 = 0.725, gp = gpar(lwd = 0.
 # Deactivate grid layout; finalise graphics save
 popViewport()
 dev.off()
+
