@@ -135,7 +135,7 @@ grid.text(label = c(paste0(stepStats[2], " km"), "Total Distance",
                     paste0(stepStats[5], " days"), "Longest Goal Streak",
                     paste0(step30Stats[1]), "30-day Total Steps",
                     paste0(step30Stats[2]), "30-day Average Daily Steps",
-                    paste0(sprintf(step30Stats[3], fmt = "%#.2f"), " %"), "30-day Goal Success Rate"),
+                    paste0(sprintf(step30Stats[3], fmt = "%#.2f"), "%"), "30-day Goal Success Rate"),
           x = rep(c(0.605, 0.709), 8), rep(c(seq(0.946, 0.755, length.out = 5),
                                              seq(0.695, 0.597, length.out = 3)), each = 2), hjust = 0,
           gp = gpar(cex = 0.5, col = c(rep(c("blue", "black"), 5), rep(c("purple", "black"), 3))))
