@@ -44,7 +44,7 @@ hPlot <- function(){
 tPlot <- function(){
   plot(data$Date, data$Steps, type = "l", ylim = c(0, 40000), xlab = "", xaxt = "n",
        ylab = "", yaxt = "n", lwd = 0.5)
-  axis.Date(1, at = seq(min(data$Date), max(data$Date), by = "3 mon"), format = "%m/%y", cex.axis = 0.41)
+  axis.Date(1, at = seq(min(data$Date), max(data$Date), by = "3 mon"), format = "%m/%y", cex.axis = 0.40)
   axis.Date(1, at = seq(min(data$Date), max(data$Date), by = "1 mon"), labels = FALSE, tcl = -0.11)
   axis(side = 2, at = seq(0, 40000, by = 5000), labels = c("0", "", "10k", "", "20k", "", "30k", "", "40k"),
        mgp = c(0, 0.17, 0))
