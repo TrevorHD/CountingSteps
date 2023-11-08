@@ -6,6 +6,9 @@ library(zoo)
 library(grid)
 library(gridBase)
 
+# Set working directory
+setwd("~/GitHub/CountingSteps")
+
 # Load in step data
 data <- read.csv("Data/StepData.csv")
 
