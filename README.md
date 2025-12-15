@@ -16,12 +16,16 @@ A log, summary, and brief analysis of daily step counts from 1 January 2020 to p
 
 ## Figures
 
-**StepData** *(.jpg)* - A standalone image, embedded below, that contains summary statistics on step counts, a time series of the data, and histogram dhowing the distribution of step counts.
+**StepData_2020_2024** *(.jpg)* - Plots showing step counts and frequency by year for 2020-2024, including summary statistics.
+
+**StepData_2025_2029** *(.jpg)* - Plots showing step counts and frequency by year for 2025-2029, including summary statistics.
 
 <br/>
 
-# Featured Image
+# Featured Images
 
-The summary and analysis of step counts is shown below. Blue lines indicate a daily goal of 8000 steps, and the top left plot shows the distribution of daily step counts with green indicating that the goal was met and red indicating that the goal was not met; the bottom plot shows a time series (black) and moving average (red) of daily step counts. Summary statistics such as total step count, total distance travelled, and mean daily step count are also provided.
+Step counts, frequency and summary statistics by year are shown below. Each image covers 5 years, with blanks for dates that have not yet occurred. Arrows next to the summary statistics indicate the direction of YoY changes.
 
-<kbd>![](https://github.com/TrevorHD/CountingSteps/blob/main/Figures/StepData.jpg)</kbd>
+<kbd>![](https://github.com/TrevorHD/CountingSteps/blob/main/Figures/StepData_2020_2024.jpg)</kbd>
+
+<kbd>![](https://github.com/TrevorHD/CountingSteps/blob/main/Figures/StepData_2025_2029.jpg)</kbd>
