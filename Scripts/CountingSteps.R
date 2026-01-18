@@ -198,7 +198,7 @@ for(i in 1:length(pYears)){
                       "Maximum Daily Steps", "Average Daily Steps"),
             x = rep(0.750, 4), y = yBaseline + c(0.795, 0.600, 0.403, 0.209, 0.013)[i],
             hjust = 0, gp = gpar(cex = 0.50))
-  if(!anyNA(data_py[, i])){
+  if(!anyNA(data_py[i, ])){
     grid.text(label = c(paste(data_py$st[i], "d"), data_py$pt[i], data_py$ma[i], data_py$av[i]),
               x = rep(0.900, 4), y = yBaseline + c(0.795, 0.600, 0.403, 0.209, 0.013)[i],
               hjust = 0, gp = gpar(cex = 0.50))}}
